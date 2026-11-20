@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,20 +178,182 @@ footer p{
     }
 }
 
+/* Header styling */
+.header {
+    background: linear-gradient(135deg, #172554, #2563eb);
+    color: white;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: Arial, sans-serif;
+}
+
+/* Title section */
+.header-content h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.header-content p {
+    margin: 8px 0 0;
+    color: #dbeafe;
+    font-size: 14px;
+}
+
+/* Login form */
+.login-form {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e0e7ff;
+}
+
+.form-group input {
+    width: 170px;
+    padding: 10px 12px;
+    border: 1px solid #93c5fd;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+    color: #1e293b;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #facc15;
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+}
+
+/* Login button */
+.login-form button {
+    padding: 10px 22px;
+    background: #facc15;
+    color: #172554;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-form button:hover {
+    background: #fde047;
+    transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+    .login-form {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .form-group input {
+        width: auto;
+    }
+
+    .login-form button {
+        width: 100%;
+    }
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    font-size: 15px;
+}
+
+.user-info strong {
+    color: #facc15;
+}
+
+.user-info button {
+    padding: 9px 18px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.user-info button:hover {
+    background: #dc2626;
+}
+
 </style>
 </head>
 
 <body>
 
+<header class="header">
+    <div class="header-content">
+        <h1>File Sharing System</h1>
+        <p>Securely share your files anywhere, anytime.</p>
+    </div>
+    <?php
+    if (isset($_SESSION["username"])): ?>
+    <div class="user-info">
+        <span>Welcome, <strong id="loggedUsername"><?= $_SESSION["username"] ?></strong>!</span>
+        <a href="http://localhost/FileSharingSystem/logout.php"><button>Logout</button></a>
+    </div>
+    <?php else: ?>
+    <form action="http://localhost/FileSharingSystem/login.php" class="login-form" method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="uname" id="username"
+                   placeholder="Enter username">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="passw" id="password"
+                   placeholder="Enter password">
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+    <?php endif; ?> 
+</header>
+
 <!-- MAIN -->
 <div class="main">
     <div class="btn-container">
 
-        <a href="http://filemanagement.gamer.gd/file/admin.php" class="share-btn">
+        <a href="http://localhost/FileSharingSystem/file/admin.php" class="share-btn">
             📤 Share File
         </a>
 
-        <a href="http://filemanagement.gamer.gd/file/user.php" class="share-btn alt">
+        <a href="http://localhost/FileSharingSystem/file/user.php" class="share-btn alt">
             📂 Select File
         </a>
 
@@ -197,8 +362,6 @@ footer p{
 
 <!-- FOOTER -->
 <footer>
-    <h2>File Sharing System</h2>
-
     <div class="footer-links">
         <a href="http://filemanagement.gamer.gd/">Home</a>
         <a href="http://suman-thapa.com.np/">Contact</a>

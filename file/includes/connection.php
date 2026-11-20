@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("sql303.infinityfree.com","if0_41651353","Suman3021","if0_41651353_file_sharing");
+$con = mysqli_connect("localhost:3306","root","","filemanagement");
 if(!$con){
     die("Canot connect");
 }
