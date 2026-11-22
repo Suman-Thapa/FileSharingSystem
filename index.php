@@ -1,4 +1,5 @@
 <?php
+include "constants.php";
 session_start();
 ?>
 <!DOCTYPE html>
@@ -324,20 +325,20 @@ footer p{
     if (isset($_SESSION["username"])): ?>
     <div class="user-info">
         <span>Welcome, <strong id="loggedUsername"><?= $_SESSION["username"] ?></strong>!</span>
-        <a href="http://localhost/FileSharingSystem/logout.php"><button>Logout</button></a>
+        <a href="<?= host ?>/logout.php"><button>Logout</button></a>
     </div>
     <?php else: ?>
-    <form action="http://localhost/FileSharingSystem/login.php" class="login-form" method="post">
+    <form action="<?= host ?>/login.php" class="login-form" method="post">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" name="uname" id="username"
-                   placeholder="Enter username">
+                   placeholder="Enter username" required>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" name="passw" id="password"
-                   placeholder="Enter password">
+                   placeholder="Enter password" required>
         </div>
 
         <button type="submit">Login</button>
@@ -349,11 +350,11 @@ footer p{
 <div class="main">
     <div class="btn-container">
 
-        <a href="http://localhost/FileSharingSystem/file/admin.php" class="share-btn">
+        <a href="<?= host ?>/file/admin.php" class="share-btn">
             📤 Share File
         </a>
 
-        <a href="http://localhost/FileSharingSystem/file/user.php" class="share-btn alt">
+        <a href="<?= host ?>/file/user.php" class="share-btn alt">
             📂 Select File
         </a>
 
