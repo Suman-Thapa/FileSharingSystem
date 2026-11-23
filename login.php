@@ -16,7 +16,7 @@ if (isset($_POST["uname"]) && isset($_POST["passw"])) {
     $message = "";
 
     if ($user) {
-        if ($user["attempts"] < 5) {
+        if ($user["attempts"] < max_attempts) {
             $password = $_POST["passw"];
             if ($password == $user["passw"]) {
 
@@ -34,15 +34,25 @@ if (isset($_POST["uname"]) && isset($_POST["passw"])) {
                 $message = "Incorrect username or password.";
             }
         } else {
-            $message = "Max attempts.";
+            $message = "Account blocked due to many incorrect attempts.";
         }
     } else {
         $message = "Incorrect username or password.";
     }
     $hostUrl = host;
     echo <<<HTML
-    <h1>$message</h1><br>
-    <a href="$hostUrl">Try again</a>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Error</title>
+    </head>
+    <body>
+        <h1>$message</h1><br>
+        <a href="$hostUrl">Try again</a>
+    </body>
+    </html>
     HTML;
     mysqli_stmt_close($stmt);
     mysqli_close($con);

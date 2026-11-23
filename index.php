@@ -363,10 +363,7 @@ footer p{
 
 <!-- FOOTER -->
 <footer>
-    <div class="footer-links">
-        <a href="http://filemanagement.gamer.gd/">Home</a>
-        <a href="http://suman-thapa.com.np/">Contact</a>
-    </div>
+    <?php include "file/includes/footerlinks.php"; ?>
 
     <p>Providing quality service and user experience.</p>
 

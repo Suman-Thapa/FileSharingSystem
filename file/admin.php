@@ -8,6 +8,7 @@ include 'includes/verifyuser.php';
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard</title>
 
 <!-- Font Awesome -->
@@ -284,10 +285,7 @@ echo "<option value='{$row['id']}'>".htmlspecialchars($row['name'])."</option>";
 <footer>
 <h2>File Sharing System</h2>
 
-<div class="footer-links">
-    <a href="http://filemanagement.gamer.gd/">Home</a>
-    <a href="http://suman-thapa.com.np/">Contact</a>
-</div>
+<?php include "includes/footerlinks.php"; ?>
 
 <p>Providing quality service and user experience.</p>
 <div class="bottom-text">

@@ -6,6 +6,7 @@ include 'includes/verifyuser.php';
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Files</title>
 
     <!-- Font Awesome -->
@@ -253,10 +254,7 @@ $(document).ready(function(){
 <footer>
 <h2>File Sharing System</h2>
 
-<div class="footer-links">
-    <a href="http://filemanagement.gamer.gd/">Home</a>
-    <a href="http://suman-thapa.com.np/">Contact</a>
-</div>
+<?php include "includes/footerlinks.php"; ?>
 
 <p>Providing quality service and user experience.</p>
 
