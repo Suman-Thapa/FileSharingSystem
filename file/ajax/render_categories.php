@@ -1,5 +1,6 @@
 <?php
 include '../includes/connection.php';
+include '../includes/verifyuser.php';
 
 $res = mysqli_query($con,"SELECT * FROM categories");
 while($row = mysqli_fetch_assoc($res)){

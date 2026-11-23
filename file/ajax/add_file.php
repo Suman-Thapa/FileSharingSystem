@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../includes/connection.php';
+include '../includes/verifyuser.php';
 
 /* Nepal Time */
 date_default_timezone_set('Asia/Kathmandu');

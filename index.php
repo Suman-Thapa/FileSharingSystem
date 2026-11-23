@@ -1,5 +1,5 @@
 <?php
-include "constants.php";
+include "file/includes/constants.php";
 session_start();
 ?>
 <!DOCTYPE html>

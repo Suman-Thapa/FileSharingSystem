@@ -1,5 +1,6 @@
 <?php
 include '../includes/connection.php';
+include '../includes/verifyuser.php';
 
 $id = intval($_POST['id']);
 

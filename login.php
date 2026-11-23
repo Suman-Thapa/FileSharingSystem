@@ -1,5 +1,5 @@
 <?php
-include "constants.php";
+include "file/includes/constants.php";
 include "file/includes/connection.php";
 session_start();
 
@@ -37,7 +37,7 @@ if (isset($_POST["uname"]) && isset($_POST["passw"])) {
             $message = "Max attempts.";
         }
     } else {
-        $message = "No such user.";
+        $message = "Incorrect username or password.";
     }
     $hostUrl = host;
     echo <<<HTML

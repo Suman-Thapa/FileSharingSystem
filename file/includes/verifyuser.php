@@ -1,10 +1,9 @@
 <?php
-include "../constants.php";
+include "constants.php";
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
 if (!isset($_SESSION["username"])) {
     $hostUrl = host;
     echo <<<HTML

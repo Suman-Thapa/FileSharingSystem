@@ -1,5 +1,6 @@
 <?php
 include '../includes/connection.php';
+include '../includes/verifyuser.php';
 
 if(!isset($_POST['id'])){
     echo json_encode(["status"=>"error"]);
