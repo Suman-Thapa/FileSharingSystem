@@ -8,19 +8,22 @@ if(empty($name)){
     exit;
 }
 
-$check = mysqli_query($con,"SELECT * FROM categories WHERE name='$name'");
+$user = $_SESSION["username"];
+
+$check = mysqli_query($con,"SELECT * FROM categories WHERE name='$name' AND user = '$user'");
 if(mysqli_num_rows($check)>0){
     echo "exists";
     exit;
 }
 
-mysqli_query($con,"INSERT INTO categories(name) VALUES('$name')");
+mysqli_query($con,"INSERT INTO categories(name, user) VALUES('$name', '$user')");
 $id = mysqli_insert_id($con);
 
 /* Build New Category HTML */
 $html = '
 <div class="category-item" data-id="'.$id.'">
-    <span class="cat-name">'.$name.'</span>
+    <span class="cat-name"><b>'.$name.'</b></span>
+    <span class="cat-name" style="color:grey;"><small>'.$user.'</small></span>
     <input type="text" class="editCategoryInput" style="display:none;">
 
     <button type="button" class="editCategoryBtn">

@@ -241,7 +241,8 @@ $res = mysqli_query($con,"SELECT * FROM categories ORDER BY id DESC");
 while($row=mysqli_fetch_assoc($res)){ 
 ?>
 <div class="category-item" data-id="<?= $row['id'] ?>">
-<span class="cat-name"><?= htmlspecialchars($row['name']) ?></span>
+<span class="cat-name"><b><?= htmlspecialchars($row['name']) ?></b></span>
+<span class="cat-user" style="color:grey;"><small><?= htmlspecialchars($row['user']) ?></small></span>
 <input type="text" class="editCategoryInput" style="display:none;">
 <button class="editCategoryBtn"><i class="fas fa-pen"></i></button>
 <button class="saveCategoryBtn" style="display:none;"><i class="fas fa-check"></i></button>
